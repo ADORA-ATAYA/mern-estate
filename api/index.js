@@ -9,7 +9,20 @@ const authRouter = require('./routes/auth.route')
 // .env config 
 dotenv.config();
 
+// for json data transfer
 app.use(express.json())
+
+
+// middleware
+app.use((err,req,res,next)=>{
+    const statusCode = err.statusCode || 500;
+    const message = err.message || "Internal Server Error"
+    return res.status(statusCode).json({
+        success:false,
+        statusCode,
+        message
+    });
+});
 
 
 //database connection
