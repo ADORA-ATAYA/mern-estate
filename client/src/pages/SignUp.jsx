@@ -26,7 +26,7 @@ const SignUp = () => {
       });
       const data = await res.json();
       if(data.success === false){
-        seterror("username or email already in use.")
+        seterror(data.message)
         setloading(false)
         return
       }
@@ -34,7 +34,7 @@ const SignUp = () => {
       seterror(null);
       navigate('/sign-in')
   } catch (err) {
-    seterror("username or email already in use.")
+    seterror(err.message)
     setloading(false)
   }
 
@@ -51,7 +51,7 @@ const SignUp = () => {
          <input type="password" placeholder='Password' id='password' onChange={handleChange} className=' border
         p-3 rounded-lg'/>
         <button disabled={loading} className='bg-slate-700 rounded-md text-white p-3 
-        hover:opacity-95 disabled:opacity-85 uppercase'>{loading?"Loading...":'SignUp'}</button>
+        hover:opacity-95 disabled:opacity-85 uppercase'>{loading?"Loading...":'Sign Up'}</button>
       </form>
       <div className='flex mt-5'>
         <p>Have an account?</p>
