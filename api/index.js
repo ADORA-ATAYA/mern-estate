@@ -13,17 +13,6 @@ dotenv.config();
 app.use(express.json())
 
 
-// middleware
-app.use((err,req,res,next)=>{
-    const statusCode = err.statusCode || 500;
-    const message = err.message || "Internal Server Error"
-    return res.status(statusCode).json({
-        success:false,
-        statusCode,
-        message
-    });
-});
-
 
 //database connection
 mongoose.connect(process.env.MONGO_URL).then(()=>{
@@ -36,6 +25,20 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
 // routes begin from here
 app.use('/api/user',userRouter)
 app.use('/api/auth',authRouter)
+
+
+
+// middleware
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal Server Error';
+    return res.status(statusCode).json({
+      success: false,
+      statusCode,
+      message,
+    });
+  });
+
 
 
 
