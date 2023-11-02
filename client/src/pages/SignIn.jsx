@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {useDispatch,useSelector} from 'react-redux'
 import { signInFailure,signInStart,signInSuccess } from '../redux/user/userSlice'
+import OAuth from '../Components/Oauth'
 
 const SignIn = () => {
   const [formData, setformData] = useState({});
@@ -46,6 +47,7 @@ const SignIn = () => {
         p-3 rounded-lg'/>
         <button disabled={loading} className='bg-slate-700 rounded-md text-white p-3 
         hover:opacity-95 disabled:opacity-85 uppercase'>{loading?"Loading...":'Sign in'}</button>
+        <OAuth />
       </form>
       <div className='flex mt-5'>
         <p>Dont have an account?</p>
