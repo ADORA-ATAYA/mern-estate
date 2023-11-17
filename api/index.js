@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const app = express();
 const userRouter  = require('./routes/user.route')
 const authRouter = require('./routes/auth.route')
+const  cookieParser = require('cookie-parser');
 
 
 // .env config 
@@ -12,6 +13,8 @@ dotenv.config();
 // for json data transfer
 app.use(express.json())
 
+//cookie
+app.use(cookieParser())
 
 
 //database connection
