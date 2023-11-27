@@ -15,7 +15,7 @@ class authController {
             next(error);
         }
     }
-
+    
     static signin = async (req,res,next)=>{
         const { email, password } = req.body;
         try {
@@ -66,7 +66,7 @@ class authController {
             }
           } catch (error) {
             next(error);
-          }
+        }
     }
 }
 

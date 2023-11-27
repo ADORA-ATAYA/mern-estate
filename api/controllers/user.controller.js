@@ -27,8 +27,8 @@ class userController {
                 }
             },{new:true}); //for store updates data
 
-            const {password , ...res}  =updatesUser._doc;
-            res.status(200).json(res);
+            const {password , ...rest}  =updatesUser._doc;
+            res.status(200).json(rest);
 
         } catch (error) {
             next(error);
