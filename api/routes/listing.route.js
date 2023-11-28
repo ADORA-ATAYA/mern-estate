@@ -1,10 +1,9 @@
 const express = require('express')
-const listingController = require('../controllers/listing.controller');
+const userController = require('../controllers/user.controller');
 const verifyToken  = require('../utils/verifyUser');
 
 const router = express.Router()
 
-router.post('/create',listingController.createListing)
 
 
 module.exports = router

@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const app = express();
 const userRouter  = require('./routes/user.route')
 const authRouter = require('./routes/auth.route')
+const listingRouter = require('./routes/listing.route')
 const  cookieParser = require('cookie-parser');
 
 
@@ -28,6 +29,7 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
 // routes begin from here
 app.use('/api/user',userRouter)
 app.use('/api/auth',authRouter)
+app.use('/api/listing',listingRouter)
 
 
 
